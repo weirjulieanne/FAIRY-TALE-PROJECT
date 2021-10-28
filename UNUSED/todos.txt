@@ -1,0 +1,73 @@
+add in ability to talk to people
+add in more objects
+add in function to trade
+add in functionality to see if we have an object then use it if we answer yes
+
+add way more places with their own objects
+
+can we add in a few games?  to get extra points?  
+add in html pages to make things look pretty
+
+
+
+
+creating promises video :
+30 minutes talks about search() function that now takes parameters
+45 minutes talks about databases
+1:08 minutes find room by id function
+last half hour is about promises.... REVIEW OFTEN!
+
+
+createhtml output
+
+
+
+
+
+// async function search() {
+//   let thing = userLocation.item;
+//   //   userLocation = await findPlaceByName(placeName);
+//   //   foundItem = userLocation.item;
+//   //   console.log(foundItem);
+//   console.log(thing);
+//}
+
+
+/////////////////////////////////////////////////////////////////
+// async function moveDirection(direction) {
+//   userLocation = "the clearing";
+//   userLocation = places.find((place) => place.name === placeName);
+//   if (direction === "north") {
+//     place = userLocation.north;
+//   } else if (direction === "east") {
+//     place = userLocation.north;
+//   } else if (direction === "south") {
+//     place = userLocation.south;
+//   } else {
+//     place = userLocation.west;
+//   }
+//   console.log(place);
+//   return place;
+// }
+
+////////////////////////////////////////////////////////////////
+
+////////////trying out move direction function
+// function moveDirection(direction) {
+//   userLocation = "the clearing"; //the current place from last move in a string
+//   foundPlace = places.find((place) => place.name === userLocation); //new place = the place in 'places' array where the place = user location
+//   let newPlace = foundPlace[direction];
+
+  // if (direction === "north") {
+  //   place = userLocation.north;
+  // } else if (direction === "east") {
+  //   place = userLocation.east;
+  // } else if (direction === "south") {
+  //   place = userLocation.south;
+  // } else if (direction === "west") {
+  //   place = userLocation.west;
+  // } else place = undefined;
+  //newLocation = places.find((place) => place.name === userLocation);
+//   console.log(`the place: ${(newPlace, foundPlace)} `);
+//   return newPlace;
+// }
