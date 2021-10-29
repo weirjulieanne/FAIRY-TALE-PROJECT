@@ -86,8 +86,27 @@ let places = [
     west: 0,
     text: "You have found an entire house made out of candy, pastries, cakes and other confections.  The oven is on - it looks like someone lives here!  Quickly, gather what you can.... Oh wait!  You hear footsteps .. the front door opens!!!!   It's the witch!  (here will be a challenge of some sort which will end is prizes or food)",
   },
+  {
+    name: "the trading post",
+    itemsToTradeFor: [
+      "watch",
+      "cup",
+      "shovel",
+      "chair",
+      "blankets",
+      "mattress",
+      "saddle",
+      "pot",
+    ],
+    itemsToBuy: 0,
+    food: [],
+    north: "the clearing",
+    east: "home",
+    south: 0,
+    west: 0,
+    text: "You have found a little wooden shack in the middle of nowhere.  There's a sign saying trading post!  This is your opportunity to trade or buy items for your travels, or to bring home! Lets take a look and see what there is!  ",
+  },
 ];
-//let places = [clearing, woodPile];
 
 async function createPlace(place) {
   //validate important fields here!
@@ -111,7 +130,7 @@ async function findPlaceByName(placeName) {
 
 async function findItems(placeName) {
   let place = await findPlaceByName(placeName);
-  console.log(`******`, place, placeName);
+  //console.log(`******`, place, placeName);
   console.log(place.item);
   return place.item;
 }

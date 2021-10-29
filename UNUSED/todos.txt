@@ -73,3 +73,18 @@ createhtml output
 //   console.log(`the place: ${(newPlace, foundPlace)} `);
 //   return newPlace;
 // }
+
+///////////////////////////
+//move (by direction) works DO NOT ALTER
+// async function move(placeName) {
+//   console.log(`User moved to the ${placeName}`);
+//   let place = await findPlaceByName(placeName);
+//   if (place) {
+//     userLocation = place;
+//   }
+//   console.log(userLocation);
+//   return userLocation;
+//}
+//////////////////////////////
+//
+//
