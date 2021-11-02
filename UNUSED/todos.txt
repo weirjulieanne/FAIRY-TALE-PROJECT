@@ -88,3 +88,60 @@ createhtml output
 //////////////////////////////
 //
 //
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+router.get("/dirnorth", async (req, res) => {
+  let direction = "north";
+  let newPlace = await ftl2.move(direction);
+  userLocation = newPlace;
+  console.log(`User moved to the `, userLocation.name);
+  if (newPlace) {
+    res.send(`You have moved to the ${userLocation.name}`);
+  } else {
+    res.send(`this place doesn't exist`);
+  }
+});
+router.get("/direast", async (req, res) => {
+  let direction = "east";
+  let newPlace = await ftl2.move(direction);
+  userLocation = newPlace;
+  console.log(`User moved to the `, userLocation.name);
+  if (newPlace) {
+    res.send(`You have moved to the ${userLocation.name}`);
+  } else {
+    res.send(`this place doesn't exist`);
+  }
+});
+router.get("/dirsouth", async (req, res) => {
+  let direction = "south";
+  let newPlace = await ftl2.move(direction);
+  userLocation = newPlace;
+  console.log(`User moved to the `, userLocation.name);
+  if (newPlace) {
+    res.send(`You have moved to the ${userLocation.name}`);
+  } else {
+    res.send(`this place doesn't exist`);
+  }
+});
+router.get("/dirwest", async (req, res) => {
+  let direction = "west";
+  let newPlace = await ftl2.move(direction);
+  userLocation = newPlace;
+  pm;
+  console.log(`User moved to the `, userLocation.name);
+  if (newPlace) {
+    res.send(`You have moved to the ${userLocation.name}`);
+  } else {
+    res.send(`this place doesn't exist`);
+  }
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////

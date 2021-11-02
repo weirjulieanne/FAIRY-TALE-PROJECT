@@ -3,28 +3,34 @@ const express = require("express");
 const router = express.Router();
 //
 //
-// router.get("/intro", async (req, res) => {
-//   userLocation = "intro";
-//   let message = await ftl2.intro();
-//   // res.send(userLocation[text]);
-//   console.log(`The game has started`);
-//   res.send(message);
+const path = require("path");
+// router.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "/public/index.html"));
 // });
+
+router.get("/intro", async (req, res) => {
+  userLocation = "intro";
+  let message = await ftl2.intro();
+  //console.log(`(from route) introduction started in the ${userLocation.name}`);
+  console.log(`(from route) introduction started in the ${userLocation}`);
+  res.send(message);
+});
 
 //start game works
 router.get("/startGame", async (req, res) => {
   userLocation = "the clearing";
-  await ftl2.startGame();
+  let message = await ftl2.startGame();
+  //console.log(`(from route) User started the game in the ${userLocation.name}`);
   console.log(`(from route) User started the game in the ${userLocation}`);
-  res.send(`You have started the game in the clearing`);
+  res.send(message);
 });
-//
+
 //listPlaces works
 router.get("/listPlaces", async (req, res) => {
   res.json(ftl2.listPlaces());
 });
 //
-//move using directions works
+// move using directions works
 router.get("/move", async (req, res) => {
   let direction = req.query.direction;
   let newPlace = await ftl2.move(direction);
@@ -89,13 +95,41 @@ router.get("/listItems", async (req, res) => {
   res.send(`You currently have these items to use: ${currentItems}`);
 });
 //
+// router.get("/trade", async (req, res) => {
+//   let give = req.query.give;
+//   let get = req.query.get;
+//   if (!itemsArray.includes(give)) {
+//     res.status(400).send(`You do not have a ${give} to trade`);
+//     return;
+//   }
+//   try {
+//     let message = await ftl2.tradeItems(give, get);
+//     console.log(`itemToGet `, get);
+//     console.log(`itemToTrade `, give);
+//     res.send(message);
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// });
+//
+router.get("/trade", async (req, res) => {
+  let give = req.query.give;
+  let get = req.query.get;
+  // if (!itemsArray.includes(give)) {
+  let message = await ftl2.tradeItems(give, get);
+  console.log(`itemToGet `, get);
+  console.log(`itemToTrade `, give);
+  res.send(message);
+  //}
+});
+
 // listFoods works
 router.get("/listFoods", async (req, res) => {
   currentFoods = await ftl2.listFoods();
   console.log(`current food array has ${currentFoods}`);
   res.send(`You currently have these foods: ${currentFoods}`);
 });
-//
+
 //move using a place name works
 // router.get("/move", async (req, res) => {
 //   let place = req.query.place;

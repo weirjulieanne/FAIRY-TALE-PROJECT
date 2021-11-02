@@ -9,7 +9,7 @@ let {
   findText,
 } = require("./places2");
 //
-let itemsArray = ["axe", "sack"];
+let itemsArray = [];
 let foodArray = [];
 let goldTotal = 0;
 let userLocation;
@@ -48,48 +48,53 @@ let gameItems = {
 };
 
 async function tradeItems(itemToTrade, itemToGet) {
-  // userLocation = "the trading post";
+  console.log(`*** ${itemToTrade}, ${itemToGet}`);
   let message;
   //find where in the game items array, the itemToTrade matches
   let findTradeItem = Object.keys(gameItems).find(
     (item) => itemToTrade === item
   );
-  //if the string of the findTradeItem matches the itemToTrade .... and the number value of each match....
   if (
     findTradeItem === itemToTrade &&
     gameItems[itemToTrade] === tradingPostItems[itemToGet]
   ) {
+    //if the string of the findTradeItem matches the itemToTrade .... and the number value of each match....
     ///this finds the index of the itemToTrade in the items array, then remove it from the array, and adds in the itemToGet
 
     let indexItemToTrade = itemsArray.indexOf(itemToTrade);
     if (indexItemToTrade > -1) {
-      itemsArray.splice(indexItemToTrade, 1);
+      itemsArray.splice(indexItemToTrade);
+      // userLocation = "the trading post";e, 1);
       itemsArray.push(itemToGet);
       message = `You traded a ${itemToTrade} for a ${itemToGet}`;
+
       console.log(`This is what's in the itemsArray ${itemsArray}`);
+      return message;
     }
   } else {
     message = `There was an error.  Try again`;
-    console.log(`error`);
+    console.log(`ERROR Item to give didn't match item to get in arrays`);
+    throw new Error(message);
   }
 }
 
 async function intro() {
-  let message = await findText("intro");
-  //console.log(` ${message}`);
-  return message;
+  userLocation = await findPlaceByName("intro");
+  console.log(`(from function) introdiction in the  ${userLocation.name}`);
+  return userLocation.text;
 }
 
 async function startGame() {
   userLocation = await findPlaceByName("the clearing");
   foodArray = [];
-  items = [];
+  itemsArray = [];
   goldTotal = 0;
   console.log(
     `(from function) user started the game in the ${userLocation.name}`
   );
+  return userLocation.text;
 }
-//
+
 async function getUserLocation() {
   return userLocation;
 }
@@ -126,7 +131,7 @@ async function lookForFood() {
 //
 async function pickUpItems() {
   let items = await findItems(userLocation.name);
-  itemsArray.push(items);
+  itemsArray.push(items.toString());
   console.log(items);
   console.log(`User picked up 
   ${items}`);
@@ -170,7 +175,7 @@ async function listFoods() {
 }
 //
 
-tradeItems("axe", "shovel");
+//tradeItems("axe", "shovel");
 module.exports = {
   listPlaces,
   startGame,
@@ -184,5 +189,6 @@ module.exports = {
   move,
   getText,
   intro,
+  tradeItems,
   //use,
 };

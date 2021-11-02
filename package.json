@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weirjulieanne/FAIRY-TALE-PROJECT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weirjulieanne/FAIRY-TALE-PROJECT/issues"
+  },
+  "homepage": "https://github.com/weirjulieanne/FAIRY-TALE-PROJECT#readme"
 }
