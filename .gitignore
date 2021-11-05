@@ -8,6 +8,8 @@
 **/pids/
 **/typings/
 **/.npm/
+**/public/
+**UNUSED/
 
 # FILES TO IGNORE
 *.log
