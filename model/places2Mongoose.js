@@ -126,10 +126,10 @@ async function foodRewardMessage(placeName) {
   // console.log(message);
   return message;
 }
-directionIsPossible("east", "the woodpile");
-directionIsPossible("north", "the woodpile");
-directionIsPossible("south", "the woodpile");
-directionIsPossible("west", "the woodpile");
+// directionIsPossible("east", "the woodpile");
+// directionIsPossible("north", "the woodpile");
+// directionIsPossible("south", "the woodpile");
+// directionIsPossible("west", "the woodpile");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 module.exports = {

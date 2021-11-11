@@ -140,14 +140,16 @@ router.get("/:matchId/useItem", async (req, res) => {
   let theMatch = await match.findMatchById(matchId);
   let userLocation = theMatch.userLocationName;
   let rewardMessage = await theMatch.getRewardMessage();
-  if (theMatch.itemsArray.includes(item)) {
-    await theMatch.useItem(item);
-    res.send(`${rewardMessage}`);
-  } else {
-    res.send(
-      `You don't have a ${item} to use.  Come back once you have found it!`
-    );
-  }
+  await theMatch.useItem(item);
+  if (theMatch.itemsArray.includes(item))
+    //   await theMatch.useItem(item);
+    //   res.send(`${rewardMessage}`);
+    // } else {
+    //   res.send(
+    //     `You don't have a ${item} to use.  Come back once you have found it!`
+    //   );
+    // }
+    res.send(`You used the ${item}!${rewardMessage}`);
 });
 //useFood works: used to 'use' a food item: /useFoodItem?food=chosenfood
 router.get("/:matchId/useFood", async (req, res) => {
@@ -156,14 +158,16 @@ router.get("/:matchId/useFood", async (req, res) => {
   let theMatch = await match.findMatchById(matchId);
   let userLocation = theMatch.userLocationName;
   let rewardMessage = await theMatch.getFoodRewardMessage();
-  if (theMatch.foodArray.includes(food)) {
-    await theMatch.useFood(food);
-    res.send(`${rewardMessage}`);
-  } else {
-    res.send(
-      `You don't have a ${food} to use.  Come back once you have found it!`
-    );
-  }
+  await theMatch.useFood(food);
+  // if (theMatch.foodArray.includes(food)) {
+  //   await theMatch.useFood(food);
+  //   res.send(`${rewardMessage}`);
+  // } else {
+  //   res.send(
+  //     `You don't have a ${food} to use.  Come back once you have found it!`
+  //   );
+  // }
+  res.send(`You used the ${food}${rewardMessage}!`);
 });
 // listItems works: lists all items user has
 router.get("/:matchId/listItems", async (req, res) => {

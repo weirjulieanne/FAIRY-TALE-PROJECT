@@ -160,9 +160,14 @@ matchSchema.methods.useItem = async function (itemToUse) {
 };
 //sorts out minusing used food from foodArray, also increases gold and item rewards to itemsArray
 matchSchema.methods.useFood = async function (foodToUse) {
+  let consumableItems = ["milk", "dried beans"];
   let rewardGold = await findUseRewardGold(this.userLocationName);
   let rewardItem = await findUseRewardItem(this.userLocationName);
-  if (this.foodArray.includes(foodToUse)) {
+
+  if (
+    this.foodArray.includes(foodToUse) &&
+    consumableItems.includes(foodToUse)
+  ) {
     let indexFoodToUse = this.foodArray.indexOf(foodToUse);
     if (indexFoodToUse > -1) {
       this.foodArray.splice(indexFoodToUse);
